@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Article Sample</title>
+    <style>
+        body, html {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .header-container, .list-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .header-container button, .list-container button {
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: font-size 0.3s ease;
+        }
+        .header-container button:hover, .list-container button:hover {
+            font-size: 20px;
+        }
+        .menu-button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            left: 1vh;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section1 {
+            height: 10%;
+            background-color: black;
+            color: white;
+            font-size: 25px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section8 {
+            height: 4%;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 10%;
+            width: 100%;
+            z-index: 9;
+        }
+        .section8 div {
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform;
+            animation: scroll-text 20s linear infinite;
+        }
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(100vw);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .section2 {
+            flex: 1;
+            overflow-y: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+            justify-content: flex-start;
+        }
+        .section2-text {
+            flex: 1;
+            width: 80%;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+        }
+        .section2 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+        .nav-buttons button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+        }
+        /* Side menu styles */
+        .side-menu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align buttons to the left */
+            padding-top: 30px;
+        }
+        .side-menu .top-section,
+        .side-menu .bottom-section {
+            
+            display: flex;
+            flex-direction: column; /* Align buttons in a column */
+            padding: 20px;
+        }
+        .side-menu .top-section {
+            padding-top: 20px; /* Add some top padding to the top section */
+        }
+        .side-menu button {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-align: left; /* Align text to the left */
+
+        }
+        .side-menu button:hover {
+            font-size: 28px;
+        }
+        .side-menu .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+        }
+        .side-menu.active {
+            left: 0;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+    </style>
+</head>
+<body>
+    <div class="section section1">
+        <h2>Space!</h2>
+        <button class="menu-button" onclick="toggleMenu()">+</button>
+    </div>
+    <div class="section section8">
+        <div>오설록농장-티팩토리 "2024-05-22"</div>
+    </div>
+    <div class="section section2">
+        <div class="section2-content">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/43067983465ee58b87a6c1.jpg" alt="Sample Image 1">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/7588007965ee58c622f0d.jpg" alt="Sample Image 2">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/153589088565ee591832c11.jpg" alt="Sample Image 3">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/75268255665ee59245c140.jpg" alt="Sample Image 4">
+        </div>
+        <div class="section2-text">
+            <p>
+                제주도 한남차밭의 오설록농장 티팩토리는 녹차 원재료의 유기농 재배부터 가공,
+                제품 포장까지 전 공정이 한 장소에 집약된 생산 시스템이다. 새 공장은 진입로 맞은편
+                기존 시설들과 관계하며 차밭 북단에 새로운 경계를 형성한다. 165m 길이, 2층 규모의
+                건물은 서측 한라산 정상에서부터 동측 바다로 연결되는 광활한 경사지에 수평성으로 조용히 대응한다.
+                진입부에서 보이는 서측 단변은 40m 폭의 단층 볼륨으로 단촐하게 방문자들을 맞이하지만,
+                바다를 향해 지형이 낮아지며 서서히 전체 볼륨의 위용을 드러낸다.
+            </p>
+            <br>
+            <p>
+                내부는 공정(1차 제조, 포장, 출하)에 따라 서측에서 동측으로 구성된다.
+                주차장과 면한 북측은 수확한 녹차 원물이 들어오고, 완제품이 출하되는 트럭 반출입구 두 곳과
+                콘크리트 캐노피는 기능적인 외관이다. 남측에는 긴 콘크리트 처마 아래 누마루 같은 길과 경사 지형 사이로
+                주변과 차밭을 조망할 수 있는 다양한 공간이 있다. 이처럼 대조적인 남, 북 면을 하나의 경험으로 통합하는
+                것은 방문자를 위한 순환형 동선 체계다. 식품 제조상의 위생을 위해 방문자들이 생산 전 과정을 외부에서
+                경험할 수 있도록 순환 동선을 따라 관람창을 두었다. 창들은 북측 1층과 남측 2층,
+                두 층에서 14개 공정을 정지 시점의 영화 장면처럼 보여준다. 차를 닦는 공정실의 관람창 앞에는
+                시향장치를 설치해 내부의 후각적 경험을 외부로 전달하고자 했다.
+            </p>
+            <br>
+            <p>
+                내부에는 청결 및 유지관리에 용이한 재료를 사용했다. 외부에는 제주산 화산암 벽돌의 시멘트와
+                송이석 골재 비율을 조절해 회색과 붉은색 사이 다양한 스펙트럼의 색과 질감을 가진
+                아홉 가지 벽돌로 ‘지질적인’ 벽을 시도했다. 지면의 송이석 바닥과 닿는 벽 하부는 강한
+                붉은색 벽돌로, 상부로 올라갈수록 황토색과 섞이며 처마의 콘크리트 색과 동화된다. 1~2층
+                방문자 영역의 벽돌 포장길 역시 미세하게 색을 조율해 내부 공간의 다양한 테라조 바닥 색과
+                자연스럽게 연결된다. 녹차밭 가장자리 땅의 송이석 골재가 점차 건물 외부, 내부 마감으로 변환,
+                확장되는 경험은 이곳 한 장소에서 원자재를 재배하고 가공해 제품으로 만드는 생산 과정과도 공명한다.
+            </p>
+            <br>
+            <br>
+            <p>
+                yips studio from 2024
+            </p>
+        </div>
+    </div>
+    <div class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <div class="top-section">
+            <button onclick="goToPage('m_index.html')">Home</button>
+            <button onclick="goToPage('m_sound.html')">Sound</button>
+            <button onclick="goToPage('m_people_list.html')">With People</button>
+            <button onclick="goToPage('m_video.html')">Video</button>
+        </div>
+        <div class="bottom-section">
+            <div class="list-container">
+                <button onclick="goToPage('m_space_article_sample.html')">오설록 티팩토리 24.05.21</button>
+                <button onclick="goToPage('m_space_article_sample_2.html')">5베르부아 24.03.25</button>
+                <button onclick="goToPage('video.html')">마포 모데씨 23.10.02</button>
+                <button onclick="goToPage('yipsintro.html')">서울 뚝섬 유휴 교각 23.05.01</button>
+                <button onclick="goToPage('live_set.html')">이태원 링 22.07.01</button>
+                <button onclick="goToPage('withpeople.html')">대구 수성못 24.05.21</button>
+                <button onclick="goToPage('video.html')">압구정 타임즈 22.08.08</button>
+                <button onclick="goToPage('yipsintro.html')">COM Studio 21.02.26</button>
+                <button onclick="goToPage('live_set.html')">dorrro Studio</button>
+                <button onclick="goToPage('withpeople.html')">INJE MED ROOM</button>
+                <button onclick="goToPage('video.html')">Bundang-Gu Office</button>
+                <button onclick="goToPage('space_article_sample.html')">제네시스 강남 24.05.21</button>
+                <button onclick="goToPage('withpeople.html')">이태원 볼레로 23.05.18</button>
+                <button onclick="goToPage('video.html')">마포 모데씨 23.10.02</button>
+                <button onclick="goToPage('yipsintro.html')">서울 뚝섬 유휴 교각 23.05.01</button>
+                <button onclick="goToPage('live_set.html')">이태원 링 22.07.01</button>
+                <button onclick="goToPage('withpeople.html')">대구 수성못 24.05.21</button>
+                <button onclick="goToPage('video.html')">압구정 타임즈 22.08.08</button>
+                <button onclick="goToPage('yipsintro.html')">COM Studio 21.02.26</button>
+                <button onclick="goToPage('live_set.html')">dorrro Studio</button>
+                <button onclick="goToPage('withpeople.html')">INJE MED ROOM</button>
+                <button onclick="goToPage('video.html')">Bundang-Gu Office</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("sideMenu");
+            menu.classList.toggle("active");
+        }
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

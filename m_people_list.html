@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>with People(m)</title>
+    <style>
+        body, html {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .header-container, .list-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .header-container button, .list-container button {
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: font-size 0.3s ease;
+        }
+        .header-container button:hover, .list-container button:hover {
+            font-size: 20px;
+        }
+        .menu-button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            left: 1vh;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       .section1 {
+            height: 15%; /* Adjust height for section 1 */
+            background-color: black;
+            color: white;
+            font-size: 45px;
+            position: relative; /* Add relative position to section1 for the menu-button positioning */
+        }
+        .section2 {
+            flex: 75%;
+            overflow-y: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+            justify-content: flex-start;
+        }
+        .header-container {
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align items at the top */
+            align-items: center;
+            padding: 10px 0; /* Optional: to give some padding */
+        }
+        .header-container button {
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+            border: none;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: font-size 0.3s ease;
+        }
+
+         .section3 {
+            height: 10%; /* Adjust height for section 3 */
+            background-color: black;
+            color: lightblue;
+            font-size: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+        .nav-buttons button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+        }
+        /* Side menu styles */
+        .side-menu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align buttons to the left */
+            padding-top: 30px;
+        }
+        .side-menu .top-section,
+        .side-menu .bottom-section {
+            padding: 20px;
+        }
+        .side-menu button {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-align: left; /* Align text to the left */
+
+        }
+        .side-menu button:hover {
+            font-size: 28px;
+        }
+        .header-container button:hover{
+            font-size: 40px;
+        }
+        .side-menu .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+        }
+        .side-menu.active {
+            left: 0;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+            }
+    </style>
+</head>
+<body>
+    <div class="section section1">
+        <h2>List!</h2>
+        <button class="menu-button" onclick="toggleMenu()">+</button>
+    </div>
+    <div class="section section2">
+        <div class="header-container">
+                <button onclick="goToPage('m_space_article_sample.html')">오설록 녹차공장 24.05.21</button>
+                <button onclick="goToPage('m_space_article_sample_2.html')">5베르부아 23.05.18</button>
+
+            </div>
+    </div>
+    <div class="section section3">
+            <h2>yips studio from 2024</h2>
+        </div>
+        <div class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="toggleMenu()">&times;</button>
+            <button onclick="goToPage('m_index.html')">Home</button>
+            <button onclick="goToPage('m_sound.html')">Sound</button>
+            <button onclick="goToPage('m_space_list_v2.html')">Space</button>
+            <button onclick="goToPage('m_video.html')">Video</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("sideMenu");
+            menu.classList.toggle("active");
+        }
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

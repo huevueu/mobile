@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Article Sample</title>
+    <style>
+        body, html {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .header-container, .list-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .header-container button, .list-container button {
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: font-size 0.3s ease;
+        }
+        .header-container button:hover, .list-container button:hover {
+            font-size: 20px;
+        }
+        .menu-button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            left: 1vh;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section1 {
+            height: 10%;
+            background-color: black;
+            color: white;
+            font-size: 25px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section8 {
+            height: 4%;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 10%;
+            width: 100%;
+            z-index: 9;
+        }
+        .section8 div {
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform;
+            animation: scroll-text 20s linear infinite;
+        }
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(100vw);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .section2 {
+            flex: 1;
+            overflow-y: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+            justify-content: flex-start;
+        }
+        .section2-text {
+            flex: 1;
+            width: 80%;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+        }
+        .section2 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+        .nav-buttons button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+        }
+        /* Side menu styles */
+        .side-menu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align buttons to the left */
+            padding-top: 30px;
+        }
+        .side-menu .top-section,
+        .side-menu .bottom-section {
+
+            display: flex;
+            flex-direction: column; /* Align buttons in a column */
+            padding: 20px;
+        }
+        .side-menu .top-section {
+            padding-top: 20px; /* Add some top padding to the top section */
+        }
+        .side-menu button {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-align: left; /* Align text to the left */
+
+        }
+        .side-menu button:hover {
+            font-size: 28px;
+        }
+        .side-menu .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+        }
+        .side-menu.active {
+            left: 0;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+    </style>
+</head>
+<body>
+    <div class="section section1">
+        <h2>with People!</h2>
+        <button class="menu-button" onclick="toggleMenu()">+</button>
+    </div>
+    <div class="section section8">
+        <div>5베르부아- "2024-03-25"</div>
+    </div>
+    <div class="section section2">
+        <div class="section2-content">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/38501265165f24c3666cfd.jpg" alt="Sample Image 1">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/191864039265f24d3465643.jpg" alt="Sample Image 2">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/155770683665f24d9ba023a.jpg" alt="Sample Image 3">
+
+        </div>
+        <div class="section2-text">
+            <p>
+                <strong>
+                    사무실, 주거 공간 등으로 사용되는 건물로 4~7층은 ‘오피스 같은 주거 공간’으로 이루어졌다. 이러한 공간을 계획한 이유는 무엇인가?
+                </strong>
+                <br>
+                <br>
+                기존의 콘크리트 구조는 다양한 목적으로 사용될 수 있는 중립적이고, 일반적인 성격을 가지고 있다.
+                기둥-보가 가진 합리적인 시스템은 사무실이라는 단일 용도에서 주거 공간과 사무실이라는
+                두 용도로 사용할 수 있는 건물로 변모하도록 해줬다. 지속 가능한 건축물의 조건은 한 용도에서
+                다른 용도로 변형할 수 있는 여지를 가지는 것, 특히 사무실에서 주거 공간으로,
+                혹은 그 반대로 변형할 수 있는 가능성에 있을 것이다. 우리는 건축물이 언제나 가변성을 갖춰야 한다고 생각한다.
+                이러한 생각과 연관해 프랑스의 방화 기준은 주거 공간에 비교적 더 엄격하지만 우리는 사무 용도의
+                아래층과 주거 용도의 위층 입면 모두 동일하게 마감했다. 조금 더 일반적인 이유를 말하자면, 재택근무와 홈
+                오피스가 증가하는 이 시대에 거주 공간과 업무 공간 구분이 의미 있다고 생각하지 않는다.
+            </p>
+            <br>
+            <br>
+            <br>
+            <p>
+                <strong>
+                    웨일 빌딩(2016), 문화연구소 파리 5(2023) 또한 오래된 건물을 리노베이션한 작업으로 스테인리스 스틸 혹은
+                    알루미늄을 사용해 이전 건축 재료와 구별하는 동시에 공간에 역동성을 더했다. 리노베이션 작업에서 금속의 매력은 무엇인가?
+                </strong>
+                <br>
+                <br>
+                모두 석재, 벽돌, 혹은 콘크리트로 지은 19세기 혹은 20세기 건물을 리노베이션한 작업으로 동일한 목적으로 시작됐다.
+                무게를 지지하는 구조를 보존하면서 공간과 빛을 최대한으로 들이고, 새로운 수직 통로로 기존 배치를 향상하고,
+                입면을 포함한 모든 부차적 요소를 개선해 편의성을 높이는 것이었다. 이러한 과제를 해결하는 가장 쉽고 저렴한
+                방법은 곧 경량 금속 구조물을 사용하는 것이다. 이에 더해 디자인적으로도 추가된 금속은 기존의 건축 요소와
+                구분되는 동시에 서로를 강조해준다.
+            </p>
+            <br>
+            <br>
+            <br>
+            <p>
+                <strong>
+                    천공된 PVC로 이루어진 10m 길이의 커튼이다.
+                    외부에 설치된 커튼이기에 재료와 형태에 대해 또 다른 고민이 필요했을 것이다.
+                </strong>
+                <br>
+                <br>
+                 무사피르는 기계식 커튼 시스템을 요청했고, 그 시스템은 모터와 함께 외부에 설치해야 하는
+                조건을 가지고 있었다. 이는 여러 난제를 가져왔는데 모터, 커튼 트랙, 커튼 등 모든 부가장치들이
+                풍압과 빛, 비바람 등을 이겨내야 하기 때문이다. 커튼은 바람을 투과하는 펴짐 처리(pre-stretched)가4
+                된 PVC 메시로 만들어졌다. 트랙과 캐리어는 녹 방지 처리를 했고, 층마다 네 개씩 있는 모터들은 방수
+                상자 안에 넣어 비로부터 보호했다. 바람속도 센서를 설치해 바람이 너무 강해질 경우 모터를 작동해 커튼들을
+                수납공간 안으로 들이기도 한다. 작업에 사용된 PVC 메시는 주로 고속도로 옆에서 볼
+                수 있는 대규모 광고판에서 쓰이는 재료로 바람을 투과하며, 오랜 시간 동안 강도와 내구력이
+                증명됐고 디지털 인쇄도 가능하다. 우리는 PVC 메시에 회청색의 큰 나무 그림을 프린트했는데
+                건물 전체를 덮는 이 나무 그림은 베르부아 거리에서 자라는 포르투갈 월계수를 본뜬 것이다.
+                메시의 구멍들 또한 나무 그림을 따라 계획돼 그림을 강조하며, 재료가 가진 기능보다 더 바람이
+                유동적으로 투과될 수 있도록 돕는다. 커튼은 한 층마다 두 개로 구성돼 각 상황에 맞춰 배치할 수 있다.
+            </p>
+            <br>
+            <br>
+
+            </div>
+            <div class="section2-content">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/203768680765f24cb8b23a0.jpg" alt="Sample Image 4">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/41511808065f24ca801871.jpg" alt="Sample Image 5">
+            <img src="https://vmspace.com/ActiveFile/spacem.org/board_img/165967483665f24c890a4b5.jpg" alt="Sample Image 6">
+        </div>
+
+          <div class="section2-text">
+              <br>
+              <br>
+            <p>
+                yips studio from 2024
+            </p>
+        </div>
+    </div>
+    <div class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <div class="top-section">
+            <button onclick="goToPage('m_index.html')">Home</button>
+            <button onclick="goToPage('m_sound.html')">Sound</button>
+            <button onclick="goToPage('m_space_list_v2.html')">Space</button>
+            <button onclick="goToPage('m_video.html')">Video</button>
+        </div>
+        <div class="bottom-section">
+            <div class="list-container">
+                <button onclick="goToPage('m_space_article_sample.html')">오설록 티팩토리 24.05.21</button>
+                <button onclick="goToPage('m_space_article_sample_2.html')">5베르부아 24.03.25</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("sideMenu");
+            menu.classList.toggle("active");
+        }
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
